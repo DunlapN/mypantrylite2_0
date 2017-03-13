@@ -5,4 +5,6 @@ class Food < ApplicationRecord
 
   # Validations
 
+  validates :name, :presence => true
+
 end
