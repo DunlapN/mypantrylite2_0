@@ -1,6 +1,9 @@
 class Food < ApplicationRecord
   # Direct associations
 
+  has_many   :pantry_items,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
