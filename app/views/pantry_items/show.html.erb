@@ -17,12 +17,14 @@
       <a href="/pantry_items" class="btn btn-primary">
         Back
       </a>
-      <a href="/pantry_items/<%= @pantry_item.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_pantry_item/<%= @pantry_item.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @pantry_item.user %>
+        <a href="/pantry_items/<%= @pantry_item.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_pantry_item/<%= @pantry_item.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
