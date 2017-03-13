@@ -47,8 +47,6 @@ class PantryItemsController < ApplicationController
 
   def update
     @pantry_item = PantryItem.find(params[:id])
-
-    @pantry_item.userid = params[:userid]
     @pantry_item.food_id = params[:food_id]
 
     save_status = @pantry_item.save
