@@ -24,7 +24,7 @@
           Userid
         </label>
 
-        <input type="text" id="userid" name="userid" placeholder="Userid" class="form-control" value="<%= @pantry_item.userid %>">
+        <%= select_tag(:userid, options_from_collection_for_select(User.all, :id, :username, @pantry_item.userid), :class => "form-control") %>
       </div>
 
       <!-- Label and input for food_id -->
