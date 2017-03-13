@@ -19,7 +19,13 @@
       <% @recipes.each do |recipe| %>
       <tr>
         <td><%= recipe.name %></td>
-        <td><%= recipe.creator.username %></td>
+        <td>
+          <% if recipe.creator.present? %>
+            <a href="/users/<%= recipe.creator.id %>">
+              <%= recipe.creator.username %>
+            </a>
+          <% end %>
+        </td>
         <td><img src='<%= recipe.image %>' class='img-responsive'></td>
         <td><%= recipe.description %></td>
         <td>

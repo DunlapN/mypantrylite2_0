@@ -9,7 +9,13 @@
       <dd><%= @recipe.name %></dd>
 
       <dt>Creator</dt>
-      <dd><%= @recipe.creator_id %></dd>
+      <dd>
+        <% if @recipe.creator.present? %>
+          <a href="/users/<%= @recipe.creator_id %>">
+            <%= @recipe.creator.username %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Image</dt>
       <dd><img src="<%= @recipe.image %>" class="img-responsive"></dd>

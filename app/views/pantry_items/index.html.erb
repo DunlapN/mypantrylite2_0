@@ -16,8 +16,20 @@
 
       <% @pantry_items.each do |pantry_item| %>
       <tr>
-        <td><%= pantry_item.user.username %></td>
-        <td><%= pantry_item.food.name %></td>
+        <td>
+          <% if pantry_item.user.present? %>
+            <a href="/users/<%= pantry_item.user.id %>">
+              <%= pantry_item.user.username %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if pantry_item.food.present? %>
+            <a href="/foods/<%= pantry_item.food.id %>">
+              <%= pantry_item.food.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/pantry_items/<%= pantry_item.id %>" class="btn btn-primary">Show</a>
           
