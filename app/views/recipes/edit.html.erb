@@ -33,7 +33,7 @@
           Creator
         </label>
 
-        <input type="text" id="creator_id" name="creator_id" placeholder="Creator" class="form-control" value="<%= @recipe.creator_id %>">
+        <%= select_tag(:creator_id, options_from_collection_for_select(User.all, :id, :username, @recipe.creator_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for image -->
