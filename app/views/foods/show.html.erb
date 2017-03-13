@@ -26,3 +26,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Food has many pantry_items -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Pantry Items
+      </li>
+
+      <% @food.pantry_items.each do |pantry_item| %>
+        <li class="list-group-item">
+          <a href="/pantry_items/<%= pantry_item.id %>">
+            <%= pantry_item.userid %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/pantry_items/<%= pantry_item.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/pantry_items/<%= pantry_item.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_pantry_item/<%= pantry_item.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Food has many ingredients -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Ingredients
+      </li>
+
+      <% @food.ingredients.each do |ingredient| %>
+        <li class="list-group-item">
+          <a href="/ingredients/<%= ingredient.id %>">
+            <%= ingredient.food_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/ingredients/<%= ingredient.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/ingredients/<%= ingredient.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_ingredient/<%= ingredient.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
