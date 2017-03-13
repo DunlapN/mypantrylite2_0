@@ -54,6 +54,23 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_pantry_item" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for userid -->
+      <input type="hidden" name="userid" value="<%= current_user.id %>">
+
+      <!-- Label and input for food_id -->
+      <input type="hidden" name="food_id" value="<%= @food.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Pantry Item
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -85,6 +102,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_ingredient" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for food_id -->
+      <input type="hidden" name="food_id" value="<%= @food.id %>">
+
+      <!-- Label and input for recipe_id -->
+      <div class="form-group">
+        <label for="recipe_id" class="control-label">
+          Recipe
+        </label>
+
+        <%= select_tag(:recipe_id, options_from_collection_for_select(Recipe.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Ingredient
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
