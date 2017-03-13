@@ -1,6 +1,9 @@
 class Recipe < ApplicationRecord
   # Direct associations
 
+  has_many   :ingredients,
+             :dependent => :destroy
+
   belongs_to :creator,
              :class_name => "User",
              :counter_cache => true
