@@ -19,7 +19,7 @@
       <% @recipes.each do |recipe| %>
       <tr>
         <td><%= recipe.name %></td>
-        <td><%= recipe.creator_id %></td>
+        <td><%= recipe.creator.username %></td>
         <td><%= recipe.image %></td>
         <td><%= recipe.description %></td>
         <td>
