@@ -1,5 +1,5 @@
 class PantryItemsController < ApplicationController
-  before_action :current_user_must_be_pantry_item_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_pantry_item_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_pantry_item_user
     pantry_item = PantryItem.find(params[:id])
