@@ -17,7 +17,7 @@
       <% @pantry_items.each do |pantry_item| %>
       <tr>
         <td><%= pantry_item.user.username %></td>
-        <td><%= pantry_item.food_id %></td>
+        <td><%= pantry_item.food.name %></td>
         <td>
           <a href="/pantry_items/<%= pantry_item.id %>" class="btn btn-primary">Show</a>
           <a href="/pantry_items/<%= pantry_item.id %>/edit" class="btn btn-warning">Edit</a>
