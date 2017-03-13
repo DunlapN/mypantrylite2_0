@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Pantry Item #<%= @pantry_item.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Userid</dt>
+      <dd><%= @pantry_item.userid %></dd>
+
+      <dt>Food</dt>
+      <dd><%= @pantry_item.food_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/pantry_items" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/pantry_items/<%= @pantry_item.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_pantry_item/<%= @pantry_item.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
