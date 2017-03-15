@@ -88,13 +88,13 @@
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Ingredients
+        Ingredient for:
       </li>
 
       <% @food.ingredients.each do |ingredient| %>
         <li class="list-group-item">
           <a href="/ingredients/<%= ingredient.id %>">
-            <%= ingredient.food_id %>
+            <%= ingredient.recipe.name %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/ingredients/<%= ingredient.id %>" class="btn btn-primary">
@@ -121,10 +121,10 @@
       <!-- Label and input for recipe_id -->
       <div class="form-group">
         <label for="recipe_id" class="control-label">
-          Recipe
+          Add to One of Your Recipes
         </label>
 
-        <%= select_tag(:recipe_id, options_from_collection_for_select(Recipe.all, :id, :name), :class => "form-control") %>
+        <%= select_tag(:recipe_id, options_from_collection_for_select(current_user.recipe_ids, :id, :name), :class => "form-control") %>
       </div>
 
       <button class="btn btn-block btn-success">
