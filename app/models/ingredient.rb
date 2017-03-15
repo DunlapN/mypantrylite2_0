@@ -10,7 +10,7 @@ class Ingredient < ApplicationRecord
 
   # Validations
 
-  validates :food_id, :presence => true
+  validates :food_id, :presence => true, :uniqueness => {:scope => :recipe_id}
 
   validates :recipe_id, :presence => true
 

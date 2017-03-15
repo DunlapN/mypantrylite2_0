@@ -11,9 +11,9 @@
       <dt>Creator</dt>
       <dd>
         <% if @recipe.creator.present? %>
-          <a href="/users/<%= @recipe.creator_id %>">
-            <%= @recipe.creator.username %>
-          </a>
+        <a href="/users/<%= @recipe.creator_id %>">
+          <%= @recipe.creator.username %>
+        </a>
         <% end %>
       </dd>
 
@@ -49,46 +49,78 @@
       </li>
 
       <% @recipe.ingredients.each do |ingredient| %>
-        <li class="list-group-item">
-          <a href="/ingredients/<%= ingredient.id %>">
-            <%= ingredient.food.name %>
+      <li class="list-group-item">
+        <a href="/ingredients/<%= ingredient.id %>">
+          <%= ingredient.food.name %>
+        </a>
+        <div class="btn-group btn-group-xs pull-right">
+          <a href="/ingredients/<%= ingredient.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
           </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/ingredients/<%= ingredient.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <a href="/ingredients/<%= ingredient.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_ingredient/<%= ingredient.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </div>
-        </li>
+          <a href="/ingredients/<%= ingredient.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+          <a href="/delete_ingredient/<%= ingredient.id %>" class="btn btn-danger" rel="nofollow">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </div>
+      </li>
       <% end %>
 
       <li class="list-group-item">
         <form action="/create_ingredient" method="post">
-      <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for food_id -->
-      <div class="form-group">
-        <label for="food_id" class="control-label">
-          Food
-        </label>
+          <!-- Label and input for food_id -->
+          <div class="form-group">
+            <label for="food_id" class="control-label">
+              Food
+            </label>
 
-        <%= select_tag(:food_id, options_from_collection_for_select(Food.all, :id, :name), :class => "form-control") %>
-      </div>
+            <%= select_tag(:food_id, options_from_collection_for_select(Food.all, :id, :name), :class => "form-control") %>
+          </div>
 
-      <!-- Label and input for recipe_id -->
-      <input type="hidden" name="recipe_id" value="<%= @recipe.id %>">
+          <!-- Label and input for recipe_id -->
+          <input type="hidden" name="recipe_id" value="<%= @recipe.id %>">
 
-      <button class="btn btn-block btn-success">
-        Add Ingredient to Recipe
-      </button>
-    </form>
+          <button class="btn btn-block btn-success">
+            Add Ingredient to Recipe
+          </button>
+        </form>
       </li>
-    </ul>
+
+      <li class="list-group-item">
+        <h3 class="text-center">Need to add a Food?</h3>
+              <form action="/create_food" method="post" enctype="multipart/form-data">
+              <!-- Hidden input for authenticity token to protect from forgery -->
+              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+              <!-- Label and input for name -->
+              <div class="form-group">
+                <label for="name" class="control-label">
+                  Name
+                </label>
+
+                <input type="text" id="name" name="name" placeholder="Name" class="form-control">
+              </div>
+
+              <!-- Label and input for image -->
+              <div class="form-group">
+                <label for="image" class="control-label">
+                  Image
+                </label>
+
+                <input type="file" id="image" name="image" class="form-control">
+              </div>
+
+              <button class="btn btn-block btn-success">
+                Create Food
+              </button>
+
+            </form>
+
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
