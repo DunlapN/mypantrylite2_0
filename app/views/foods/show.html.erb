@@ -36,23 +36,30 @@
         Pantry Items
       </li>
 
+<!--  Displays who has this in their pantry, want to limit this to a boolean of whether current_user has it-->
       <% @food.pantry_items.each do |pantry_item| %>
-        <li class="list-group-item">
-          <a href="/pantry_items/<%= pantry_item.id %>">
-            <%= pantry_item.userid %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/pantry_items/<%= pantry_item.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
+        <% if pantry_item.userid == current_user.id  %>
+          <li class="list-group-item">
+            <a href="/pantry_items/<%= pantry_item.id %>">
+              <% if @food.name.last == 's' %>
+                <%= @food.name %> are in Your Pantry
+              <% else %>
+                <%= @food.name %> is in Your Pantry
+              <% end %>
             </a>
-            <a href="/pantry_items/<%= pantry_item.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_pantry_item/<%= pantry_item.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </div>
-        </li>
+            <div class="btn-group btn-group-xs pull-right">
+              <a href="/pantry_items/<%= pantry_item.id %>" class="btn btn-primary">
+                <i class="fa fa-search-plus"></i>
+              </a>
+              <a href="/pantry_items/<%= pantry_item.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+              <a href="/delete_pantry_item/<%= pantry_item.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            </div>
+          </li>
+        <% end %>
       <% end %>
 
       <li class="list-group-item">
@@ -67,7 +74,7 @@
       <input type="hidden" name="food_id" value="<%= @food.id %>">
 
       <button class="btn btn-block btn-success">
-        Create Pantry Item
+        Add Item to Your Pantry
       </button>
     </form>
       </li>
