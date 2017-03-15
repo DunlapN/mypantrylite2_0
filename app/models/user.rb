@@ -9,6 +9,9 @@ class User < ApplicationRecord
              :foreign_key => "userid",
              :dependent => :destroy
 
+  has_many   :meals,
+             :foreign_key => "user_id",
+             :dependent => :destroy
   # Indirect associations
 
   has_many :food_items, :through => :pantry_items, :source => :food

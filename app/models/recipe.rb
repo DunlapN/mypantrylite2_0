@@ -6,6 +6,9 @@ class Recipe < ApplicationRecord
   has_many   :ingredients,
              :dependent => :destroy
 
+  has_many   :meals,
+             :dependent => :destroy
+
   belongs_to :creator,
              :class_name => "User",
              :counter_cache => true

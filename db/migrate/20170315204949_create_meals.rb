@@ -1,8 +1,8 @@
 class CreateMeals < ActiveRecord::Migration
   def change
     create_table :meals do |t|
-      t.integer :meal_id
-      t.date :time
+      t.integer :recipe_id
+      t.date :date
       t.integer :user_id
 
       t.timestamps
