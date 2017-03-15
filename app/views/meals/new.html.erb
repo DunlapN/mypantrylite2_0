@@ -2,7 +2,7 @@
 <% if @meal.errors.any? %>
   <% @meal.errors.full_messages.each do |message| %>
     <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&dates;</button>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <%= message %>
     </div>
   <% end %>
@@ -18,10 +18,10 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for meal_id -->
+      <!-- Label and input for recipe_id -->
       <div class="form-group">
         <label for="recipe_id" class="control-label">
-          Choose Your Recipe
+          Recipe
         </label>
 
         <input type="text" id="recipe_id" name="recipe_id" placeholder="Recipe" class="form-control" value="<%= @meal.recipe_id %>">
@@ -30,7 +30,7 @@
       <!-- Label and input for date -->
       <div class="form-group">
         <label for="date" class="control-label">
-          date
+          Date
         </label>
 
         <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @meal.date %>">

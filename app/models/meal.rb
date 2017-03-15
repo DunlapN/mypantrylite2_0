@@ -9,4 +9,5 @@ class Meal < ApplicationRecord
 
   validates :recipe_id, :presence => true
   validates :user_id, :presence => true
+  validates :scheduled_date, :presence => true
 end

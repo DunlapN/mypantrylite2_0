@@ -20,8 +20,8 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.new
 
-    @meal.meal_id = params[:meal_id]
-    @meal.time = params[:time]
+    @meal.recipe_id = params[:recipe_id]
+    @meal.date = params[:date]
     @meal.user_id = params[:user_id]
 
     save_status = @meal.save
@@ -49,8 +49,8 @@ class MealsController < ApplicationController
   def update
     @meal = Meal.find(params[:id])
 
-    @meal.meal_id = params[:meal_id]
-    @meal.time = params[:time]
+    @meal.recipe_id = params[:recipe_id]
+    @meal.date = params[:date]
     @meal.user_id = params[:user_id]
 
     save_status = @meal.save

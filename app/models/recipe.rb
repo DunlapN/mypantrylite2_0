@@ -7,9 +7,10 @@ class Recipe < ApplicationRecord
              :dependent => :destroy
 
   has_many   :meals,
+             :foreign_key => "recipe_id",
              :dependent => :destroy
 
-  belongs_to :creator,
+  belongs_to :user,
              :class_name => "User",
              :counter_cache => true
 
