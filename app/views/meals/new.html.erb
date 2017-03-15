@@ -2,7 +2,7 @@
 <% if @meal.errors.any? %>
   <% @meal.errors.full_messages.each do |message| %>
     <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&dates;</button>
       <%= message %>
     </div>
   <% end %>
@@ -20,20 +20,20 @@
 
       <!-- Label and input for meal_id -->
       <div class="form-group">
-        <label for="meal_id" class="control-label">
-          Meal
+        <label for="recipe_id" class="control-label">
+          Choose Your Recipe
         </label>
 
-        <input type="text" id="meal_id" name="meal_id" placeholder="Meal" class="form-control" value="<%= @meal.meal_id %>">
+        <input type="text" id="recipe_id" name="recipe_id" placeholder="Recipe" class="form-control" value="<%= @meal.recipe_id %>">
       </div>
 
-      <!-- Label and input for time -->
+      <!-- Label and input for date -->
       <div class="form-group">
-        <label for="time" class="control-label">
-          Time
+        <label for="date" class="control-label">
+          date
         </label>
 
-        <input type="text" id="time" name="time" placeholder="Time" class="form-control" value="<%= @meal.time %>">
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @meal.date %>">
       </div>
 
       <!-- Label and input for user_id -->
