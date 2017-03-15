@@ -51,7 +51,7 @@
       <% @recipe.ingredients.each do |ingredient| %>
         <li class="list-group-item">
           <a href="/ingredients/<%= ingredient.id %>">
-            <%= ingredient.food_id %>
+            <%= ingredient.food.name %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/ingredients/<%= ingredient.id %>" class="btn btn-primary">

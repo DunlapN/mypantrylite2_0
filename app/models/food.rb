@@ -11,6 +11,9 @@ class Food < ApplicationRecord
 
   # Indirect associations
 
+  has_many :owners, :through => :pantry_items, :source => :user
+
+
   # Validations
 
   validates :name, :uniqueness => true

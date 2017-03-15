@@ -10,20 +10,20 @@
 
         <div class="form-group">
     <%= f.label :name_cont, "Name contains" %>
-    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => " Ex: 'carrot'" %>
   </div>
 
 <div class="form-group">
     <%= f.label :description_cont, "Description contains" %>
-    <%= f.text_field :description_cont, :class => "form-control", :placeholder => "Description contains" %>
+    <%= f.text_field :description_cont, :class => "form-control", :placeholder => "Ex: 'heart healthy'" %>
   </div>
 
 <div class="form-group">
-          <%= f.label :created_at, "Created at" %>
+          <%= f.label :created_at, "Date Uploaded" %>
           <div class="row">
             <div class='col-md-6 mb-1'>
               <div class='input-group date' id='created_atgteqPicker'>
-                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "After this Date" %>
                   <span class="input-group-addon">
                       <span class="glyphicon glyphicon-calendar"></span>
                   </span>
@@ -32,7 +32,7 @@
 
             <div class='col-md-6'>
               <div class='input-group date' id='created_atlteqPicker'>
-                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Before this Date" %>
                   <span class="input-group-addon">
                       <span class="glyphicon glyphicon-calendar"></span>
                   </span>
@@ -59,8 +59,8 @@
       </script>
 
         <div class="form-group">
-      <%= f.label :creator_username_cont, "User username contains" %>
-      <%= f.text_field :creator_username_cont, :class => "form-control", :placeholder => "User username contains" %>
+      <%= f.label :creator_username_cont, "Uploaded By" %>
+      <%= f.text_field :creator_username_cont, :class => "form-control", :placeholder => "Ex: 'susie'" %>
     </div>
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
