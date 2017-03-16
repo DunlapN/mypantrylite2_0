@@ -12,6 +12,7 @@
   <h3>Edit Meal #<%= @meal.id %></h3>
 </div>
 
+
 <div class="row">
   <div class="col-md-12">
     <form action="/update_meal/<%= @meal.id %>" method="post">
@@ -24,7 +25,7 @@
           Recipe
         </label>
 
-        <input type="text" id="recipe_id" name="recipe_id" placeholder="Recipe" class="form-control" value="<%= @meal.recipe_id %>">
+        <%= select_tag(:recipe_id, options_from_collection_for_select(Recipe.all, :id, :name, @meal.recipe_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for scheduled_date -->
@@ -33,23 +34,35 @@
           Date
         </label>
 
-        <input type="text" id="scheduled_date" name="scheduled_date" placeholder="Date" class="form-control" value="<%= @meal.scheduled_date %>">
-      </div>
 
-      <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
+        <div class="form-group">
+                <div class='input-group date' id='datetimepicker1' >
+                    <input type='text' class="form-control"  name="scheduled_date" placeholder="Date" class="form-control" value="<%= @meal.scheduled_date %>" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
 
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @meal.user_id %>">
-      </div>
+      <!-- input for user_id -->
 
-      <button class="btn btn-warning">
+
+        <input type="hidden" id="user_id" name="user_id"  class="form-control" value="<%= current_user.id %>">
+
+
+      <button class="btn btn-success">
         Update Meal
       </button>
       or
-      <a href="/meals/<%= @meal.id %>">Cancel</a>
+      <a href="/meals">Cancel</a>
     </form>
   </div>
 </div>
+
+<script type="text/javascript">
+           $(function () {
+               $('#datetimepicker1').datetimepicker({
+                format: "YYYY-MM-DD"
+               });
+           });
+       </script>
