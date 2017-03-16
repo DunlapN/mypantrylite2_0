@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  # Routes for the Shopping List Resource:
+  #READ
+  get "/shopping_list", :controller => "shopping_list" => "index"
+
   # Routes for the Meal resource:
   # CREATE
   get "/meals/new", :controller => "meals", :action => "new"
