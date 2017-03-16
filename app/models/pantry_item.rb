@@ -11,4 +11,7 @@ class PantryItem < ApplicationRecord
 
   # Validations
 
+  validates :food_id , :presence => true, :uniqueness => {:scope => :userid}
+  validates :userid , :presence => true
+
 end
