@@ -1,18 +1,17 @@
 <div class="page-header">
-  <h3>Meal #<%= @meal.id %></h3>
+  <h3>You are eating...</h3>
 </div>
 
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Recipe</dt>
-      <dd><%= @meal.recipe_id %></dd>
+      <dd><%= @meal.recipe.name %></dd>
 
       <dt>Date</dt>
       <dd><%= @meal.scheduled_date %></dd>
 
-      <dt>User</dt>
-      <dd><%= @meal.user_id %></dd>
+      <img src='<%= @meal.recipe.image %>' class='img-responsive'>
 
     </dl>
 

@@ -11,16 +11,15 @@
       <tr>
         <th>Recipe</th>
         <th>Date</th>
-        <th>User</th>
         <th>Actions</th>
       </tr>
 
       <% @meals.each do |meal| %>
       <tr>
-        <td><%= meal.recipe_id %></td>
+        <td><%= meal.recipe.name %></td>
         <td><%= meal.scheduled_date %></td>
-        <td><%= meal.user_id %></td>
         <td>
+
           <a href="/meals/<%= meal.id %>" class="btn btn-primary">Show</a>
           <a href="/meals/<%= meal.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_meal/<%= meal.id %>" class="btn btn-danger" rel="nofollow">Delete</a>

@@ -1,6 +1,6 @@
 class MealsController < ApplicationController
   def index
-    @meals = Meal.all
+    @meals = Meal.where(user_id: current_user.id)
 
     render("meals/index.html.erb")
   end
