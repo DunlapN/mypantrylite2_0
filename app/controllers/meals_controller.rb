@@ -1,6 +1,9 @@
 class MealsController < ApplicationController
   def index
-    @meals = Meal.where(user_id: current_user.id)
+    allmeals = Meal.where(user_id: current_user.id)
+    @meals = allmeals.where("scheduled_date >= ?", Date.today)
+    @pastmeals = allmeals - @meals
+
 
     render("meals/index.html.erb")
   end
