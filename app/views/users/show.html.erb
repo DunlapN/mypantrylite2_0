@@ -1,10 +1,11 @@
 <div class="page-header">
-  <h3>User #<%= @user.id %></h3>
+  <h3>Hey <%= @user.username %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
+      <h4>Your Info:</h4>
       <dt>Email</dt>
       <dd><%= @user.email %></dd>
 
@@ -16,11 +17,6 @@
 
     </dl>
 
-    <div class="btn-group btn-group-justified">
-      <a href="/users" class="btn btn-primary">
-        Back
-      </a>
-    </div>
   </div>
 </div>
 
@@ -36,7 +32,7 @@
       <% @user.pantry_items.each do |pantry_item| %>
         <li class="list-group-item">
           <a href="/pantry_items/<%= pantry_item.id %>">
-            <%= pantry_item.userid %>
+            <%= pantry_item.food.name %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/pantry_items/<%= pantry_item.id %>" class="btn btn-primary">
@@ -75,7 +71,7 @@
             <a href="/recipes/<%= recipe.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <%if current_user == recipe.creator %>
+            <%if current_user == recipe.user %>
               <a href="/recipes/<%= recipe.id %>/edit" class="btn btn-warning">
                 <i class="fa fa-edit"></i>
               </a>
@@ -89,3 +85,9 @@
     </ul>
   </div>
 </div>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/users" class="btn btn-primary">
+        Back
+      </a>
+    </div>

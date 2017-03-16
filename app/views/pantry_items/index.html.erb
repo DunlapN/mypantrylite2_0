@@ -9,20 +9,13 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Userid</th>
         <th>Food</th>
+        <th>Image</th>
         <th>Actions</th>
       </tr>
 
       <% @pantry_items.each do |pantry_item| %>
       <tr>
-        <td>
-          <% if pantry_item.user.present? %>
-            <a href="/users/<%= pantry_item.user.id %>">
-              <%= pantry_item.user.username %>
-            </a>
-          <% end %>
-        </td>
         <td>
           <% if pantry_item.food.present? %>
             <a href="/foods/<%= pantry_item.food.id %>">
@@ -31,8 +24,11 @@
           <% end %>
         </td>
         <td>
+          <img src="<%= pantry_item.food.image %>"">
+        </td>
+        <td>
           <a href="/pantry_items/<%= pantry_item.id %>" class="btn btn-primary">Show</a>
-          
+
           <% if current_user == pantry_item.user %>
             <a href="/pantry_items/<%= pantry_item.id %>/edit" class="btn btn-warning">Edit</a>
             <a href="/delete_pantry_item/<%= pantry_item.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
