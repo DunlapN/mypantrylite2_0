@@ -23,7 +23,7 @@ class Recipe < ApplicationRecord
   # Validations
 
   validates :creator_id, :presence => true
-
   validates :name, :presence => true
 
+  alias_method :creator, :user
 end
