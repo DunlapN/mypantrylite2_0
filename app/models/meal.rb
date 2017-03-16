@@ -4,8 +4,7 @@ class Meal < ApplicationRecord
              :counter_cache => true
 
   belongs_to :user,
-             :class_name => "User",
-             :counter_cache => true
+             :class_name => "User"
 
   validates :recipe_id, :presence => true
   validates :user_id, :presence => true

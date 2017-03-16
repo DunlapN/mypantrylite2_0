@@ -59,8 +59,8 @@
       </script>
 
         <div class="form-group">
-      <%= f.label :creator_username_cont, "Uploaded By" %>
-      <%= f.text_field :creator_username_cont, :class => "form-control", :placeholder => "Ex: 'susie'" %>
+      <%= f.label :user_username_cont, "Uploaded By" %>
+      <%= f.text_field :user_username_cont, :class => "form-control", :placeholder => "Ex: 'susie'" %>
     </div>
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
@@ -88,9 +88,9 @@
       <tr>
         <td><%= recipe.name %></td>
         <td>
-          <% if recipe.creator.present? %>
-            <a href="/users/<%= recipe.creator.id %>">
-              <%= recipe.creator.username %>
+          <% if recipe.user.present? %>
+            <a href="/users/<%= recipe.user.id %>">
+              <%= recipe.user.username %>
             </a>
           <% end %>
         </td>

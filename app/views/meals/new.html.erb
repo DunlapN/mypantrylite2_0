@@ -24,26 +24,30 @@
           Recipe
         </label>
 
-        <input type="text" id="recipe_id" name="recipe_id" placeholder="Recipe" class="form-control" value="<%= @meal.recipe_id %>">
+        <%= select_tag(:recipe_id, options_from_collection_for_select(Recipe.all, :id, :name), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for date -->
+      <!-- Label and input for scheduled_date -->
       <div class="form-group">
-        <label for="date" class="control-label">
+        <label for="scheduled_date" class="control-label">
           Date
         </label>
 
-        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @meal.date %>">
-      </div>
 
-      <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
+        <div class="form-group">
+                <div class='input-group date' id='datetimepicker1' >
+                    <input type='text' class="form-control"  name="scheduled_date" placeholder="Date" class="form-control" value="<%= @meal.scheduled_date %>" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
 
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @meal.user_id %>">
-      </div>
+      <!-- input for user_id -->
+
+
+        <input type="hidden" id="user_id" name="user_id"  class="form-control" value="<%= current_user.id %>">
+
 
       <button class="btn btn-success">
         Create Meal
@@ -53,3 +57,11 @@
     </form>
   </div>
 </div>
+
+<script type="text/javascript">
+           $(function () {
+               $('#datetimepicker1').datetimepicker({
+                format: "YYYY-MM-DD"
+               });
+           });
+       </script>

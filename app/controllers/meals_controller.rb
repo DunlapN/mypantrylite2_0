@@ -21,7 +21,7 @@ class MealsController < ApplicationController
     @meal = Meal.new
 
     @meal.recipe_id = params[:recipe_id]
-    @meal.date = params[:date]
+    @meal.scheduled_date = params[:scheduled_date]
     @meal.user_id = params[:user_id]
 
     save_status = @meal.save
@@ -50,7 +50,7 @@ class MealsController < ApplicationController
     @meal = Meal.find(params[:id])
 
     @meal.recipe_id = params[:recipe_id]
-    @meal.date = params[:date]
+    @meal.scheduled_date = params[:scheduled_date]
     @meal.user_id = params[:user_id]
 
     save_status = @meal.save
