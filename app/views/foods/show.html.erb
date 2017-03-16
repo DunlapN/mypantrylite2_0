@@ -123,7 +123,9 @@
         <label for="recipe_id" class="control-label">
           Add to One of Your Recipes
         </label>
-
+        <form class="" action="index.html" method="post">
+          <%= select_tag(:recipe_id, options_from_collection_for_select(current_user.recipes, :id, :name), :class => "form-control") %>
+        </form>
       </div>
 
       <button class="btn btn-block btn-success">
