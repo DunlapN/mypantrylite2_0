@@ -5,8 +5,8 @@ class MealsController < ApplicationController
 
   def require_permission
     if current_user != Meal.find(params[:id]).user
-      redirect_to root_path
-      :notice => "Thou cannot touch another's meal"    
+      redirect_back(:fallback_location => "/", :notice => "Thou cannot alter another's meal.")
+    end
   end
 
 
