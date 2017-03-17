@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
 
-before_filter :require_permission, only: :edit
+before_filter :require_permission, only: [:edit, :update, :destroy]
+
 
 def require_permission
   if current_user != Recipe.find(params[:id]).user
