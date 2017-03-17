@@ -1,4 +1,15 @@
 class RecipesController < ApplicationController
+
+before_filter :require_permission, only: :edit
+
+def require_permission
+  if current_user != Recipe.find(params[:id]).user
+    redirect_to root_path
+    #Or do something else here
+  end
+end
+
+
   def index
     @q = Recipe.ransack(params[:q])
     @recipes = @q.result(:distinct => true).includes(:user, :ingredients).page(params[:page]).per(10)
