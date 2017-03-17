@@ -19,7 +19,7 @@
       <tr>
         <td><%= meal.recipe.name %></td>
         <td><img src="<%= meal.recipe.image %>" class="index-image img-responsive"></td>
-        <td><%= meal.scheduled_date %></td>
+        <td><%= meal.scheduled_date.strftime("%B %-d, %Y")%></td>
         <td>
 
           <a href="/meals/<%= meal.id %>" class="btn btn-primary">Details</a>
@@ -50,7 +50,7 @@
       <% @pastmeals.each do |meal| %>
       <tr>
         <td><%= meal.recipe.name %></td>
-        <td><%= meal.scheduled_date %></td>
+        <td><%= meal.scheduled_date.strftime("%B %-d, %Y") %></td>
         <td>
 
           <a href="/meals/<%= meal.id %>" class="btn btn-primary">Details</a>
