@@ -1,4 +1,16 @@
 class MealsController < ApplicationController
+
+  before_filter :require_permission, only: [:edit, :update, :destroy]
+
+  
+  def require_permission
+    if current_user != Meal.find(params[:id]).user
+      redirect_to root_path
+      #Or do something else here
+    end
+  end
+
+
   def index
     allmeals = Meal.where(user_id: current_user.id)
     @meals = allmeals.where("scheduled_date >= ?", Date.today)
