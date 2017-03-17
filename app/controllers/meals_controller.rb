@@ -2,12 +2,11 @@ class MealsController < ApplicationController
 
   before_filter :require_permission, only: [:edit, :update, :destroy]
 
-  
+
   def require_permission
     if current_user != Meal.find(params[:id]).user
       redirect_to root_path
-      #Or do something else here
-    end
+      :notice => "Thou cannot touch another's meal"    
   end
 
 
