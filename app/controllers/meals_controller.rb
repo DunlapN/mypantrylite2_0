@@ -14,7 +14,7 @@ class MealsController < ApplicationController
     allmeals = Meal.where(user_id: current_user.id)
     @meals = allmeals.where("scheduled_date >= ?", Date.today)
     @pastmeals = allmeals - @meals
-
+    @meals = @meals.order('meals.scheduled_date ASC')
 
     render("meals/index.html.erb")
   end

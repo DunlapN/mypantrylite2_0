@@ -27,8 +27,8 @@
         <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @recipe.name %>">
       </div>
 
-      <!-- Label and input for creator_id -->
-      <input type="hidden" name="creator_id" value="current_user.id">
+      <!-- Input for creator_id: Keeps it the same as original -->
+      <input type="hidden" name="creator_id" value="<%= @recipe.creator_id %>">
 
       <!-- Label and input for image -->
       <div class="form-group">
